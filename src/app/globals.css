@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0f0f10;
+  --bone: #f5f4f0;
+  --champagne: #f3deb6;
+  --champagne-2: #d8c298;
+  --champagne-ink: #a98d5e; /* champagne legível sobre fundo claro */
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: #e9e8e4;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--champagne);
+  color: #0f0f10;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0f10;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2c;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--champagne-2);
+}
+
+/* ───────── temas de seção (alternância preto / claro) ───────── */
+
+.theme-dark {
+  --bg: #0b0b0c;
+  --bg-2: #111113;
+  --fg: #f3f2ee;
+  --fg-soft: rgba(243, 242, 238, 0.58);
+  --fg-mute: rgba(243, 242, 238, 0.38);
+  --line: rgba(255, 255, 255, 0.09);
+  --accent: #f3deb6;
+  --accent-2: #d8c298;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.theme-light {
+  --bg: #ffffff;
+  --bg-2: #f4f2ee;
+  --fg: #121213;
+  --fg-soft: rgba(18, 18, 19, 0.62);
+  --fg-mute: rgba(18, 18, 19, 0.42);
+  --line: rgba(18, 18, 19, 0.14);
+  --accent: #a98d5e;
+  --accent-2: #c0a878;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-6 md:px-10;
+  }
+
+  .label {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  @media (min-width: 768px) {
+    .label {
+      font-size: 11px;
+    }
+  }
+
+  .display {
+    @apply font-display font-light leading-[1.04] tracking-[-0.02em];
+    color: var(--fg);
+  }
+
+  .lead {
+    color: var(--fg-soft);
+  }
+
+  .muted {
+    color: var(--fg-mute);
+  }
+
+  .hairline {
+    background: var(--line);
+  }
+
+  .btn-solid {
+    background: var(--accent);
+    color: #0f0f10;
+    @apply rounded-full px-8 py-3.5 font-sans text-[11px] uppercase tracking-[0.2em] transition-opacity;
+  }
+  .btn-solid:hover {
+    opacity: 0.85;
+  }
+
+  .btn-ghost {
+    border: 1px solid var(--line);
+    color: var(--fg-soft);
+    @apply rounded-full px-7 py-3 font-sans text-[11px] uppercase tracking-[0.2em] transition-colors;
+  }
+  .btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
+
+.gold-text {
+  background: linear-gradient(100deg, #fdf3dd 0%, #f3deb6 45%, #d8c298 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.theme-light .gold-text {
+  background: linear-gradient(100deg, #bda072 0%, #a98d5e 55%, #93794f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* trilho horizontal da linha do tempo */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
