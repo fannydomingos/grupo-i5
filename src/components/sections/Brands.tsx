@@ -9,6 +9,7 @@ import SectionHead from '../SectionHead';
 import Section from '../Section';
 import { brands, type Brand } from '@/lib/site';
 import BrandIcon from '../BrandIcon';
+import BrandScene from '../BrandScene';
 
 function ArrowIcon() {
   return (
@@ -66,9 +67,9 @@ function BrandVisual({ brand }: { brand: Brand }) {
           </>
         ) : (
           <>
-            <div className="absolute inset-0 bg-[radial-gradient(95%_75%_at_28%_18%,rgba(169,141,94,0.16),transparent_70%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(95%_75%_at_30%_20%,rgba(169,141,94,0.14),transparent_72%)]" />
             <div
-              className="absolute inset-0 opacity-[0.10]"
+              className="absolute inset-0 opacity-[0.07]"
               style={{
                 backgroundImage:
                   'linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)',
@@ -77,22 +78,17 @@ function BrandVisual({ brand }: { brand: Brand }) {
                 WebkitMaskImage: 'radial-gradient(75% 65% at 50% 45%, #000 20%, transparent 80%)',
               }}
             />
-            <span className="pointer-events-none absolute inset-0 flex items-center justify-center font-display text-[5.5rem] font-light leading-none tracking-tight opacity-[0.14] md:text-[8rem] text-[color:var(--accent-2)]">
-              {brand.wordmark}
-            </span>
+            <BrandScene
+              name={brand.key as 'incorp' | 'imob' | 'hotel' | 'stay' | 'cowork'}
+              className="absolute inset-x-8 bottom-8 top-28 text-[color:var(--accent-2)]"
+            />
           </>
         )}
 
         <div
           style={{ transform: 'translateZ(45px)' }}
-          className="absolute inset-0 flex flex-col justify-between p-7 md:p-9"
+          className="absolute inset-0 flex flex-col p-7 md:p-9"
         >
-          <span
-            className="font-sans text-[10px] uppercase tracking-label md:text-[11px]"
-            style={{ color: brand.image ? '#F3DEB6' : 'var(--accent)' }}
-          >
-            {brand.claim}
-          </span>
           <p
             className="font-display text-4xl font-light tracking-tight md:text-5xl"
             style={{ color: brand.image ? '#F3F2EE' : 'var(--fg)' }}
@@ -181,37 +177,43 @@ export default function Brands() {
         <div className="shell">
           <SectionHead label="O Grupo" />
 
-          <div className="mt-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="display max-w-2xl text-[clamp(2rem,5vw,4rem)]">
+          <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-20">
+            <h2 className="display text-[clamp(2.4rem,5.4vw,4.4rem)]">
               <WordReveal text="Somos i5." accent={['i5.']} />
             </h2>
-            <div className="max-w-sm">
-              <p className="text-lg font-light text-[color:var(--accent)]">
-                Cinco negócios. Uma mesma forma de pensar.
-              </p>
-              <p className="lead mt-3 text-sm leading-relaxed">
-                Inteligência para simplificar e melhorar a vida das pessoas.
-              </p>
-            </div>
+
+            <Reveal delay={0.12}>
+              <div className="max-w-md lg:pt-3">
+                <p className="text-[1.05rem] font-light leading-relaxed text-[color:var(--fg)]">
+                  Cinco negócios. Uma mesma forma de pensar.
+                </p>
+                <p className="lead mt-4 text-[0.95rem] leading-[1.8]">
+                  Inteligência para simplificar e melhorar a vida das pessoas.
+                  Com o cliente no centro.
+                </p>
+              </div>
+            </Reveal>
           </div>
 
-          <ul className="mt-14 grid gap-px overflow-hidden rounded-xl border border-[color:var(--line)] bg-[color:var(--line)] sm:grid-cols-2 lg:grid-cols-5">
+          <ul className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-[color:var(--line)] bg-[color:var(--line)] sm:grid-cols-2 lg:grid-cols-5">
             {brands.map((b, i) => (
               <Reveal key={b.key} delay={i * 0.07} className="h-full">
                 <li className="h-full">
                   <a
                     href={`#${b.key}`}
-                    className="group flex h-full flex-col gap-5 bg-[color:var(--bg-2)] px-6 py-7 transition-colors hover:bg-[color:var(--bg)]"
+                    className="group flex h-full flex-col gap-7 bg-[color:var(--bg-2)] px-7 py-10 transition-colors hover:bg-[color:var(--bg)]"
                   >
                     <BrandIcon
                       src={b.icon}
-                      className="h-14 w-14 text-[color:var(--accent-2)] transition-colors group-hover:text-[color:var(--accent)]"
+                      className="h-16 w-16 text-[color:var(--accent-2)] transition-colors group-hover:text-[color:var(--accent)]"
                     />
                     <span className="mt-auto">
-                      <span className="block font-display text-lg font-light text-[color:var(--accent)]">
+                      <span className="block font-display text-[1.35rem] font-light text-[color:var(--fg)]">
                         {b.wordmark.charAt(0) + b.wordmark.slice(1).toLowerCase()}
                       </span>
-                      <span className="muted mt-1 block text-[0.78rem] font-light">{b.claim}</span>
+                      <span className="mt-2 block text-[0.82rem] font-light text-[color:var(--accent-2)]">
+                        {b.claim}
+                      </span>
                     </span>
                   </a>
                 </li>

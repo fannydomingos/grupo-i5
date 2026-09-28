@@ -33,7 +33,7 @@ export const brands: Brand[] = [
       'Projetos modernos, funcionais e inteligentes',
       'Melhores localizações, mais qualidade de vida',
     ],
-    image: '/img/incorp.jpg',
+    // image: '/img/incorp.jpg',  ← preencha para usar foto no lugar da cena em vetor
     theme: 'light',
     href: '#', // TODO: URL do site da i5 Incorp
     live: false,
@@ -70,7 +70,7 @@ export const brands: Brand[] = [
       'O conforto acolhe',
       'As pessoas fazem a diferença',
     ],
-    image: '/img/hotel.jpg',
+    // image: '/img/hotel.jpg',  ← preencha para usar foto no lugar da cena em vetor
     theme: 'light',
     href: 'https://i5hotel.com.br/',
     live: true,
@@ -88,7 +88,7 @@ export const brands: Brand[] = [
       'Para quem mora: uma experiência prática e descomplicada',
       'Tecnologia e inteligência do início ao fim',
     ],
-    image: '/img/stay.jpg',
+    // image: '/img/stay.jpg',  ← preencha para usar foto no lugar da cena em vetor
     theme: 'light',
     href: 'https://smart-by-i5-site.vercel.app/',
     live: true,
@@ -106,7 +106,7 @@ export const brands: Brand[] = [
       'Tudo pronto — sem burocracia e sem operação',
       '+ valor — mais profissionalismo',
     ],
-    image: '/img/cowork.jpg',
+    // image: '/img/cowork.jpg',  ← preencha para usar foto no lugar da cena em vetor
     theme: 'light',
     href: 'https://i5cowork.com.br/',
     live: true,

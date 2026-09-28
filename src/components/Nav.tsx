@@ -32,9 +32,9 @@ export default function Nav() {
           solid ? 'border-b border-white/[0.06] bg-[#0f0f10]/85 backdrop-blur-xl' : ''
         }`}
       >
-        <nav className="shell flex h-[72px] items-center justify-between">
+        <nav className="shell flex h-[88px] items-center justify-between">
           <a href="#topo" aria-label="Grupo i5" className="flex items-center gap-3">
-            <Logo className="h-9 w-auto" />
+            <Logo className="h-12 w-[118px]" priority />
           </a>
 
           <ul className="hidden items-center gap-9 md:flex">

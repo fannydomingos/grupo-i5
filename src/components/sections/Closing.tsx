@@ -15,7 +15,7 @@ export default function Closing() {
       <div className="shell relative py-28 md:py-40">
         <div className="text-center">
           <Reveal>
-            <Logo className="mx-auto h-24 w-auto" withWordmark />
+            <Logo className="mx-auto h-20 w-[190px]" />
           </Reveal>
 
           <h2 className="display mx-auto mt-10 max-w-3xl text-[clamp(2rem,5.6vw,4.2rem)]">
