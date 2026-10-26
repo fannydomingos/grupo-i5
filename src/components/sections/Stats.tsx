@@ -1,11 +1,12 @@
 'use client';
 
+import Image from 'next/image';
 import Counter from '../motion/Counter';
 import Reveal from '../motion/Reveal';
 import WordReveal from '../motion/WordReveal';
 import SectionHead from '../SectionHead';
 import Section from '../Section';
-import BrandScene from '../BrandScene';
+import { brands } from '@/lib/site';
 
 const items = [
   { render: () => <Counter to={19} />, label: 'anos de história' },
@@ -13,13 +14,6 @@ const items = [
   { render: () => <Counter to={10} prefix="+" />, label: 'anos de hospitalidade' },
   // TODO: substituir "+X" pelos números oficiais do Grupo
   { render: () => <span>+X</span>, label: 'm² / unidades / projetos' },
-];
-
-const scenes = [
-  { name: 'incorp' as const, label: 'Incorp' },
-  { name: 'hotel' as const, label: 'Hotel' },
-  { name: 'stay' as const, label: 'Stay' },
-  { name: 'cowork' as const, label: 'Cowork' },
 ];
 
 export default function Stats() {
@@ -59,19 +53,31 @@ export default function Stats() {
           ))}
         </div>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {scenes.map((s, i) => (
-            <Reveal key={s.name} delay={i * 0.1}>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[color:var(--line)] bg-[color:var(--bg-2)]">
-                <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_30%_20%,rgba(169,141,94,0.12),transparent_72%)]" />
-                <BrandScene
-                  name={s.name}
-                  className="absolute inset-x-5 bottom-5 top-14 text-[color:var(--accent-2)]"
-                />
-                <span className="absolute left-6 top-5 text-[0.72rem] uppercase tracking-[0.2em] text-[color:var(--accent)]">
-                  {s.label}
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {brands.map((b, i) => (
+            <Reveal key={b.key} delay={i * 0.08}>
+              <a
+                href={`#${b.key}`}
+                className="group relative block aspect-[4/3] overflow-hidden rounded-2xl border border-[color:var(--line)] bg-[color:var(--bg-2)]"
+              >
+                {b.image && (
+                  <Image
+                    src={b.image}
+                    alt={b.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 20vw"
+                    className="object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.06]"
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-black/35" />
+                <span className="absolute left-5 top-4 font-display text-[1.15rem] font-light">
+                  <span className="text-white">i5</span>
+                  <span className="text-[#F3DEB6]"> {b.wordmark.toLowerCase()}</span>
                 </span>
-              </div>
+                <span className="absolute inset-x-5 bottom-4 text-[0.78rem] font-light text-[#F3DEB6]/85">
+                  {b.claim}
+                </span>
+              </a>
             </Reveal>
           ))}
         </div>

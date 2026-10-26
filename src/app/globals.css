@@ -107,7 +107,7 @@ body {
   }
 
   .btn-solid {
-    background: var(--accent);
+    background: #f3deb6;
     color: #0f0f10;
     @apply rounded-full px-8 py-3.5 font-sans text-[11px] uppercase tracking-[0.2em] transition-opacity;
   }

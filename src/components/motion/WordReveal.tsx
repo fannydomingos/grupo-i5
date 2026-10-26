@@ -27,7 +27,10 @@ export default function WordReveal({ text, className, accent = [], delay = 0 }: 
   return (
     <span ref={ref} className={className}>
       {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden align-bottom">
+        <span
+          key={i}
+          className="inline-block overflow-hidden align-bottom pb-[0.2em] -mb-[0.2em]"
+        >
           <motion.span
             className={`inline-block ${accentSet.has(normalize(word)) ? 'gold-text' : ''}`}
             initial={{ y: '110%', opacity: 0 }}

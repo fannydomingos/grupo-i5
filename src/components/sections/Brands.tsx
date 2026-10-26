@@ -89,11 +89,9 @@ function BrandVisual({ brand }: { brand: Brand }) {
           style={{ transform: 'translateZ(45px)' }}
           className="absolute inset-0 flex flex-col p-7 md:p-9"
         >
-          <p
-            className="font-display text-4xl font-light tracking-tight md:text-5xl"
-            style={{ color: brand.image ? '#F3F2EE' : 'var(--fg)' }}
-          >
-            i5<span className="gold-text"> {brand.wordmark.toLowerCase()}</span>
+          <p className="font-display text-4xl font-light tracking-tight md:text-5xl">
+            <span style={{ color: '#FFFFFF' }}>i5</span>
+            <span style={{ color: '#F3DEB6' }}> {brand.wordmark.toLowerCase()}</span>
           </p>
         </div>
       </motion.div>
