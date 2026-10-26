@@ -172,60 +172,10 @@ function BrandBlock({ brand, index }: { brand: Brand; index: number }) {
 
 export default function Brands() {
   return (
-    <>
-      <Section id="grupo" theme="dark" className="py-24 sm:py-36">
-        <div className="shell">
-          <SectionHead label="O Grupo" />
-
-          <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-20">
-            <h2 className="display text-[clamp(2.4rem,5.4vw,4.4rem)]">
-              <WordReveal text="Somos i5." accent={['i5.']} />
-            </h2>
-
-            <Reveal delay={0.12}>
-              <div className="max-w-md lg:pt-3">
-                <p className="text-[1.05rem] font-light leading-relaxed text-[color:var(--fg)]">
-                  Cinco negócios. Uma mesma forma de pensar.
-                </p>
-                <p className="lead mt-4 text-[0.95rem] leading-[1.8]">
-                  Inteligência para simplificar e melhorar a vida das pessoas.
-                  Com o cliente no centro.
-                </p>
-              </div>
-            </Reveal>
-          </div>
-
-          <ul className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-[color:var(--line)] bg-[color:var(--line)] sm:grid-cols-2 lg:grid-cols-5">
-            {brands.map((b, i) => (
-              <Reveal key={b.key} delay={i * 0.07} className="h-full">
-                <li className="h-full">
-                  <a
-                    href={`#${b.key}`}
-                    className="group flex h-full flex-col gap-7 bg-[color:var(--bg-2)] px-7 py-10 transition-colors hover:bg-[color:var(--bg)]"
-                  >
-                    <BrandIcon
-                      src={b.icon}
-                      className="h-16 w-16 text-[color:var(--accent-2)] transition-colors group-hover:text-[color:var(--accent)]"
-                    />
-                    <span className="mt-auto">
-                      <span className="block font-display text-[1.35rem] font-light text-[color:var(--fg)]">
-                        {b.wordmark.charAt(0) + b.wordmark.slice(1).toLowerCase()}
-                      </span>
-                      <span className="mt-2 block text-[0.82rem] font-light text-[color:var(--accent-2)]">
-                        {b.claim}
-                      </span>
-                    </span>
-                  </a>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </Section>
-
+    <div id="negocios" className="scroll-mt-20">
       {brands.map((b, i) => (
         <BrandBlock key={b.key} brand={b} index={i} />
       ))}
-    </>
+    </div>
   );
 }

@@ -5,9 +5,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Logo from './Logo';
 
 const links = [
-  { href: '#manifesto', label: 'Manifesto' },
   { href: '#grupo', label: 'O Grupo' },
-  { href: '#realizacoes', label: 'Realizações' },
+  { href: '#negocios', label: 'Negócios' },
   { href: '#historia', label: 'História' },
 ];
 
@@ -34,7 +33,7 @@ export default function Nav() {
       >
         <nav className="shell flex h-[88px] items-center justify-between">
           <a href="#topo" aria-label="Grupo i5" className="flex items-center gap-3">
-            <Logo className="h-12 w-[118px]" priority />
+            <Logo className="h-14 w-[106px]" priority />
           </a>
 
           <ul className="hidden items-center gap-9 md:flex">
